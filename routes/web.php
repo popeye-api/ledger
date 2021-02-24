@@ -25,3 +25,5 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('v_dashboard','Dashboard_controller@show_dashboard');
+
+Route::resource('report','Report_controller');
