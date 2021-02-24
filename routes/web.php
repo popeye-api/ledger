@@ -17,6 +17,11 @@ Route::get('/', function () {
     return view('menu');
 });
 
+/*---------- user profile ----------*/
+Route::resource('Profile','Profile_manage_controller');
+Route::post('Profile','Profile_manage_controller@update')->name('UpdateUserProfile');
+/*----------------------------------*/
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
