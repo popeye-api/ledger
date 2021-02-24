@@ -21,10 +21,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-<<<<<<< HEAD
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-=======
 Route::get('v_dashboard','Dashboard_controller@show_dashboard');
->>>>>>> a21fdf2f18d3e483884fe7fa309cd7ea7e40b6bc
