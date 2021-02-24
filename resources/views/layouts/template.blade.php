@@ -45,7 +45,7 @@ anime.timeline()
 
     <style>
      
-     .page-login {
+.page-login {
   background: linear-gradient(165deg, #f7f5fb 50%, #fff 50%);
 }
 
