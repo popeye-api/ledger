@@ -122,9 +122,6 @@ anime.timeline()
     unicode-range: U+0E00–U+0E7F;
   }
 
-.nav{
-  padding: 5px;
-}
 }
 /*# sourceMappingURL=login.min.css.map */
 
