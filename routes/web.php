@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,5 +28,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('v_dashboard','Dashboard_controller@show_dashboard');
+Route::get('v_dashboard_year','Dashboard_controller@show_dashboard_year');
 
 Route::resource('report','Report_controller');

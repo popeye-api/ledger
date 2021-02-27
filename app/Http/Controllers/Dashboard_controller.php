@@ -12,4 +12,8 @@ class Dashboard_controller extends Controller
     public function show_dashboard(){
         return view('Dashboard/v_dashboard');
     }
+
+    public function show_dashboard_year(){
+        return view('Dashboard/v_dashboard_year');
+    }
 }
