@@ -13,29 +13,48 @@
   
   
     <!-- Chart's container -->
-    <div id="chart" style="height: 300px;"></div>
+    <div id="chart" style="height: 750px;"></div>
+
+
+ @section('script')
     <!-- Charting library -->
     <script src="https://unpkg.com/echarts/dist/echarts.min.js"></script>
     <!-- Chartisan -->
     <script src="https://unpkg.com/@chartisan/echarts/dist/chartisan_echarts.js"></script>
     <!-- Your application script -->
-    
   
-
-
-
-
-
-    @section('script')
-
     <script>
       const chart = new Chartisan({
         el: '#chart',
         url: "@chart('sample_chart')",
         hooks: new ChartisanHooks()
           .colors()
-          .datasets(['line']),
+          .title('Sum the amount of income and expenditure each year')
+          .legend({ position: 'bottom' })
+          .tooltip()
+          .datasets(['line'])
+          ,
       });
+
+    /*
+    * 
+    */ 
+    var canvasL = document.getElementById("chart");
+    //var ctx = chart.init(canvasL);
+    console.log(canvasL); // CanvasRenderingContext2D { ... }
+    //console.log(ctx);
+
+
+    canvasL.onclick = function(result){
+      console.log(result)
+      
+      var slice = chart.getDatasetAtEvent(event);
+      if(!slice.length) return; // return if not clicked on slice
+      var label = slice[0]._chart.label;
+      console.log(label)
+    }
+
+    
     </script>
 
     @stop
