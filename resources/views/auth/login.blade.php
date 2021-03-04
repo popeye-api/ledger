@@ -1,4 +1,7 @@
 @extends('layouts.template')
+<head>
+    <title>LEDGER @yield('title')</title>
+</head>
 {{-- @extends('menu') --}}
 
 @section('content')
@@ -141,4 +144,6 @@
         </div>
     </div>
 </div> --}}
+
 @endsection
+
