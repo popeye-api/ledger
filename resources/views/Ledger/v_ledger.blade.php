@@ -107,7 +107,7 @@
 </nav>
 <div class="container-fluid">
     <h3>Ledger account</h3><hr>
-    <button  type="button" class="btn btn-primary bd-add-modal-lg" ><a class="nav-link d-flex align-items-center py-0 text-white">Add list</a></button>
+    <button  type="button" class="btn btn-primary bd-add-modal-lg" ><a href="{{url('v_ledger_add')}}" class="nav-link d-flex align-items-center py-0 text-white">Add list</a></button>
     <div style="float:right;">Date <input type="date"> to <input type="date"> </div><br><br>
     <div class="container">
         <div class="dropdown-year">

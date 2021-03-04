@@ -22,6 +22,10 @@ class Ledger_controller extends Controller
         return view('Ledger.v_ledger_detail');
     }
 
+    public function show_ledger_add()
+    {
+        return view('Ledger.v_add_ledger');
+    }
 
     /**
      * Show the form for creating a new resource.
