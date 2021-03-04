@@ -1,9 +1,10 @@
-@extends('menu')
-@section('title','dashboard')
+<!-- @extends('menu') -->
+<!-- @section('title','dashboard') -->
 
-@section('content')
+<!-- @section('content') -->
 <!-- Page wrapper -->
-<!DOCTYPE html>
+<!DOCTYPE html> 
+@section('script')
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item active" aria-current="page">รายงานสรุปเชิงสถิติ</li>
@@ -16,7 +17,7 @@
     <div id="chart" style="height: 750px;"></div>
 
 
- @section('script')
+
     <!-- Charting library -->
     <script src="https://unpkg.com/echarts/dist/echarts.min.js"></script>
     <!-- Chartisan -->
@@ -35,28 +36,8 @@
           .datasets(['line'])
           ,
       });
-
-    /*
-    * 
-    */ 
-    var canvasL = document.getElementById("chart");
-    //var ctx = chart.init(canvasL);
-    console.log(canvasL); // CanvasRenderingContext2D { ... }
-    //console.log(ctx);
-
-
-    canvasL.onclick = function(result){
-      console.log(result)
-      
-      var slice = chart.getDatasetAtEvent(event);
-      if(!slice.length) return; // return if not clicked on slice
-      var label = slice[0]._chart.label;
-      console.log(label)
-    }
-
     
     </script>
 
-    @stop
-@stop
 
+@stop
