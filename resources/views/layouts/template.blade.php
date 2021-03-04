@@ -44,6 +44,26 @@ anime.timeline()
 
 
     <style>
+
+.bg{
+    background: rgb(91,61,27);
+    background: linear-gradient(90deg, rgba(91,61,27,1) 23%, rgba(208,112,3,1) 87%);
+
+  }
+
+.img-bg{
+    background-image: url("/storage/bg.jpg");
+    height : 50%;
+    weight: 30%;
+  }
+
+  
+
+  .height{
+    weight : 50%;
+    height: 70%;
+    margin-top: 5% ;
+  }
      
 .page-login {
   background: linear-gradient(165deg, #f7f5fb 50%, #fff 50%);
@@ -159,9 +179,9 @@ anime.timeline()
 <body>
     <div id="app">
 
-      {{-- <main class="py-4">
+      <main class="py-4">
         @yield('content')
-    </main> --}}
+    </main>
     </div>
 </body>
 </html>
