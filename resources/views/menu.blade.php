@@ -108,13 +108,13 @@
         <a class="nav-link" href="{{ url('v_dashboard') }}">Dashboard <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Ledger account</a>
+        <a class="nav-link" href="{{ url('v_ledger') }}">Ledger account</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Report</a>
+        <a class="nav-link" href="{{ url('report') }}">Report</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link " href="#" >Profile</a>
+        <a class="nav-link " href="{{ url('Profile') }}" >Profile</a>
       </li>
       <li class="nav-item">
         <a class="nav-link " href="#" >Logout</a>

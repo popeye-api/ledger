@@ -31,3 +31,6 @@ Route::get('v_dashboard','Dashboard_controller@show_dashboard');
 Route::get('v_dashboard_year','Dashboard_controller@show_dashboard_year');
 
 Route::resource('report','Report_controller');
+
+Route::resource('v_ledger','Ledger_controller');
+Route::get('v_ledger_detail','Ledger_controller@show_ledger_detail');
