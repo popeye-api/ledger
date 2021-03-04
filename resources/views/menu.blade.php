@@ -15,34 +15,20 @@
     position: relative;
   }
 
-  @media (min-width: 992px) {
-    .login-bg {
-      background-image: url("/images/4710013.jpg");
-      background-repeat: no-repeat;
-      background-size: cover;
-    }
-    .login-bg:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      left: 0;
-      bottom: 0;
-      background-color: rgba(63, 81, 181, 0.62);
-    }
+  .card-size{
+    
+    weight : 40%;
+    
+
   }
 
-  .form-login {
-    background-color: #FFFFFF;
-    width: 100%;
-    max-width: 500px;
+  .img-bg{
+    /* background-image: url("/storage/bg.jpg"); */
+    height : 63px;
+    weight: 50px;
   }
 
-  @media (min-width: 992px) {
-    .form-login-side {
-      background: linear-gradient(165deg, #f7f5fb 50%, #fff 50%);
-    }
-  }
+ 
 
   .brand {
     background-color: #eb5b23;
@@ -124,9 +110,9 @@
   </nav>
 
 <!-- Page wrapper -->
-<div class="page-wrapper">
+{{-- <div class="page-wrapper">
   @yield('content')
-</div>
+</div> --}}
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
