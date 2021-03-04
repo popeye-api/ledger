@@ -103,11 +103,36 @@
         <a class="nav-link " href="{{ url('Profile') }}" >Profile</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link " href="#" >Logout</a>
+        <a class="nav-link " style="cursor:pointer " data-toggle="modal" data-target="#logout" >Logout</a>
       </li>
     </ul>
   </div>
   </nav>
+
+<!-- modal logout -->
+  <div class="modal fade" id="logout" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Logout</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <p>Do you want to logout?</p>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-dark" data-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-success"  ><a class="nav-link d-flex align-items-center py-0 text-white" href="{{ url('/logout') }}">Comfirm</a></button> 
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div> 
+
+
 
 <!-- Page wrapper -->
 {{-- <div class="page-wrapper">
