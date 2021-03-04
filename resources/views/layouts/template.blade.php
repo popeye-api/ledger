@@ -31,9 +31,8 @@
   width: 90%;
   border-radius: 5px 5px 0 0;
   margin : auto;
- 
-
-  
+  margin-top: 100px;
+  justify-content: center;
   }
 
  
@@ -41,11 +40,9 @@
   .card-size{
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     /* margin : auto; */
-    margin-top : 15%;
+    margin-top : 7%;
     weight : 40%;
     transition: 0.3s;
-    
-
   }
 
   body{
@@ -59,8 +56,20 @@
     height : 630px;
     /* weight: 500px; */
   }
+  .img-logo{
+    margin: auto;
+    width: 10%;
+    padding: 10px;
+    margin-top: 100px;
+    justify-content: center;
+  }
   
-
+  .input{
+    margin: auto;
+    width: 100%;
+    padding: 10px;
+    margin-top: 50px;
+  }
 
 
         
