@@ -67,8 +67,8 @@
                 {{ __('Login') }}
             </button>
             
-            
-            <span style="color:gray " class="btn">Don't have a account ?</span>
+            <br>
+            <span style="color:gray" >Don't have a account ?</span>
             <a style="color:#FF5733 "  href="{{ route('register') }}"><u>
                 {{ __('Sign up') }}</u>
             </a>

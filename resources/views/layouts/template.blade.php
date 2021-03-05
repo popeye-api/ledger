@@ -47,6 +47,10 @@
   text-align: right;
 }
 
+.auto {
+  cursor: auto;
+  }
+
  
 
   .card-size{
