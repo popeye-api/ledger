@@ -60,13 +60,22 @@
             <button type="submit" class="btn btn-primary" style="background-color:#FF7A33;">
                 {{ __('Login') }}
             </button>
+            
 
             @if (Route::has('password.request'))
                 <a style="color:#FF5733" class="btn btn-link" href="{{ route('password.request') }}">
                     {{ __('Forgot Your Password?') }}
                 </a>
             @endif
+
+            
+                
+                
+            
         </div>
+        <a style="color:#FF5733" class="btn btn-link mg" href="{{ route('register') }}">
+            {{ __('Sign up?') }}
+        </a>
     </div>
 </form>
             </div>
