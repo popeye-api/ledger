@@ -39,6 +39,10 @@
     margin-left: 34%;
   }
 
+  .img-bd {
+  border-radius: 5%;
+}
+
  
 
   .card-size{
