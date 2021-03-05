@@ -94,9 +94,12 @@
 
     <div class="form-group row mb-0">
         <div class="col-md-6 offset-md-4">
-            <button type="submit" class="btn btn-primary " style="background-color:#FF7A33;">
+            <button type="submit" class="btn btn-primary btn-block" style="background-color:#FF7A33;">
                 {{ __('Register') }}
              </button>
+             <a style="color:#FF5733" class="btn btn-link offset-md-0" href="{{ ('/') }}">
+                {{ __('Already have an account ?') }}
+            </a>
         </div>
     </div>
 </form>
