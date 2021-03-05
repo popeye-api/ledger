@@ -40,14 +40,7 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    // protected function redirectTo(){
-    //     if(auth()->user()) {
-    //         return 'v_dashboard';
-
-    //     }else{
-    //         return '/';
-    //     }
-    // }
+   
 
     public function logout(Request $request) {
       Auth::logout();
