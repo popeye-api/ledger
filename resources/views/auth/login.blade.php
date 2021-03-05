@@ -68,7 +68,7 @@
                 </a>
 
             @endif
-            <a style="color:#FF5733" class="btn btn-link" href="{{ route('register') }}">
+            <a style="color:#FF5733" class="btn btn-link " href="{{ route('register') }}">
                 {{ __('Sign up?') }}
             </a>
 
