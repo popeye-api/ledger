@@ -22,9 +22,9 @@
         <div class="col-md-8 ">
 <div class="card-body">
 <div class="img-logo" >
-<img src="{{asset('/storage/lg.jpg')}}">
+<img class="img-bd" src="{{asset('/storage/lg.jpg')}}">
 </div>
-<h3 align="center">Ledger system</h3>
+<h3 align="center">Ledger system</h3><br>
   <form method="POST" action="{{ route('register') }}">
     @csrf
 
