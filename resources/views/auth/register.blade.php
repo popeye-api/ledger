@@ -15,14 +15,16 @@
 <div class="container">
     <div class="card card-size">
     <div class="row">
-        
         <div class="col-md-4 ">
             <img src="{{$urlImg}}"class="img-bg" >
         </div>
 
         <div class="col-md-8 ">
-            <div class="card-body">
-  จัด layout ด้วยยยย
+<div class="card-body">
+<div class="img-logo" >
+<img src="{{asset('/storage/lg.jpg')}}">
+</div>
+<h3 align="center">Ledger system</h3>
   <form method="POST" action="{{ route('register') }}">
     @csrf
 
@@ -92,7 +94,7 @@
 
     <div class="form-group row mb-0">
         <div class="col-md-6 offset-md-4">
-            <button type="submit" class="btn btn-primary">
+            <button type="submit" class="btn btn-primary " style="background-color:#FF7A33;">
                 {{ __('Register') }}
              </button>
         </div>
