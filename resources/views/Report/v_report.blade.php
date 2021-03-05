@@ -89,7 +89,9 @@
         <tr>
         <td>December </td>
         <tr>
-
+        <tr>
+        <td colspan="2" style="text-align: center;">Total </td>
+        <tr>
     </tbody>
     </table>
     <!-- </div> -->
