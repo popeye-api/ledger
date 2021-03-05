@@ -33,7 +33,7 @@
 
             @error('email')
                 <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
+                    {{-- <strong>{{ $message }}</strong> --}}
                 </span>
             @enderror
         </div>
@@ -43,13 +43,19 @@
         <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
         <div class="col-md-6">
-            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+            <input id="password" type="password" class="form-control @error('email') is-invalid @enderror" name="password" required autocomplete="current-password">
 
             @error('email')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
             @enderror
+            @if (Route::has('password.request'))
+                <a style="color:#FF5733 " class="btn btn-link " href="{{ route('password.request') }}">
+                    {{ __('Forgot Your Password?') }}
+                </a>
+
+            @endif
         </div>
     </div>
 
@@ -61,15 +67,10 @@
                 {{ __('Login') }}
             </button>
             
-
-            @if (Route::has('password.request'))
-                <a style="color:#FF5733" class="btn btn-link" href="{{ route('password.request') }}">
-                    {{ __('Forgot Your Password?') }}
-                </a>
-
-            @endif
-            <a style="color:#FF5733" class="btn btn-link " href="{{ route('register') }}">
-                {{ __('Sign up?') }}
+            
+            <span style="color:gray " class="btn">Don't have a account ?</span>
+            <a style="color:#FF5733 "  href="{{ route('register') }}"><u>
+                {{ __('Sign up') }}</u>
             </a>
 
             

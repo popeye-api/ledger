@@ -43,6 +43,10 @@
   border-radius: 5%;
 }
 
+.txt{
+  text-align: right;
+}
+
  
 
   .card-size{
