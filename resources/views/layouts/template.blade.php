@@ -35,6 +35,10 @@
   justify-content: center;
   }
 
+  .mg{
+    margin-left: 34%;
+  }
+
  
 
   .card-size{
