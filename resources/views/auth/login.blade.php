@@ -51,7 +51,7 @@
                 </span>
             @enderror
             @if (Route::has('password.request'))
-                <a style="color:#FF5733 " class="btn btn-link " href="{{ route('password.request') }}">
+                <a style="color:#FF5733 " href="{{ route('password.request') }}">
                     {{ __('Forgot Your Password?') }}
                 </a>
 
