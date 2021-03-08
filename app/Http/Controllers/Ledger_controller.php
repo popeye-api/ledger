@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Statement;
 
 class Ledger_controller extends Controller
 {
@@ -12,9 +15,10 @@ class Ledger_controller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        return view('Ledger.v_ledger');
+    public function index(){
+        $data = new Statement();
+        $rs_statement = $data->get_statement();
+        return view('Ledger.v_ledger')->with('result',$rs_statement);
     }
 
     public function show_ledger_detail()
