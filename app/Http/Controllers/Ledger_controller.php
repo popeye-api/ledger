@@ -49,7 +49,23 @@ class Ledger_controller extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'product_name'=> ['required','unique:Statement_log'],
+            'type'=> ['required','unique:Statement_log'],
+            'balance'=>'required',
+            'description'=>'required'
+        ]);
+       
+        $qu_user = new Statement_log([
+            // 'date' =>  $date,
+            'product_name' => $product_name,
+            'type' => $type,
+            'balance' => $balance,
+            'description' => $description
+        ]);
+        
+        $qu_user->save();
+        return response()->json(['success'=>'Ajax successfilly']);
     }
 
     /**
