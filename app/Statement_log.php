@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class Statement_log extends Model
 {
+    protected $table = 'Statement_log';
     //กำหนด primary key ของ model Users
     protected $primaryKey = 'log_id';
     //กำหนด fill ที่ใช้งานให้กับ model Users

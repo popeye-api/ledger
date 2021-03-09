@@ -18,8 +18,8 @@ class SampleChart extends BaseChart
     public function handler(Request $request): Chartisan
     {
         return Chartisan::build()
-            ->labels(['2014', '2015', '2016'])
-            ->dataset('Sample', [4000, 5000, 1000]);
+            ->labels(['Jan', 'Feb', 'Mar','Apr','May','Jun','Jul'])
+            ->dataset('Sample', [4000, 5000, 1000,200,4500,6000,800]);
     }
 
 }
