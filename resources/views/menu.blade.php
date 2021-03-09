@@ -171,6 +171,10 @@
       delay: (el, i) => 275 * i
     }
   );
+
+  function reClassInValid(x) {
+  document.getElementById(x).classList.remove('is-invalid');
+  }
 </script>    
 
 
