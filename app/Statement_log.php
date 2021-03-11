@@ -41,7 +41,8 @@ class Statement_log extends Model
         $rs_log = DB::table('statement_log')
             ->select('product_name','balance','description','log_statement_id','log_type_id','created_at')
             ->whereYear('created_at', '=', date('Y'))
-            ->where('log_user_id',$user);
+            ->where('log_user_id',$user)
+            ->where('is_active',0);
         return $rs_log->get();
     }
 
