@@ -42,7 +42,7 @@ class Ledger_controller extends Controller
 
     public function show_ledger_edit($log_id){
         $data = new Statement_log();
-        $rs_edit = $data->get_log_id($log_id);
+        $rs_edit = $data->get_log_by_id($log_id);
         return view('Ledger.v_edit_ledger')->with('result',$rs_edit);
     }
 
@@ -118,13 +118,16 @@ class Ledger_controller extends Controller
      */
     public function update(Request $request)
     {
+        $data = new Statement_log();
+        $rs_created = $data->get_created_at($request->log_id);
+        // dd();
         $rs_log = Statement_log::find($request->log_id);
         $rs_log->product_name = $request->get('product_name');
         $rs_log->log_type_id = $request->get('type');
         $rs_log->balance = $request->get('balance');
         $rs_log->description = $request->get('description');
         $rs_log->save();
-        return redirect()->action('Ledger_controller@show_ledger_detail',$request->log_statement_id);
+        return redirect()->action('Ledger_controller@show_ledger_detail',$rs_created[0]->created_at);
     }
 
     /**

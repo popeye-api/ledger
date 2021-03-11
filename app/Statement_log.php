@@ -47,10 +47,15 @@ class Statement_log extends Model
     }
 
     public function get_log_by_id($log_id){
-        $rs_log = DB::table('statement_log')->select
-                ('log_id','product_name','balance','description','log_statement_id','log_type_id','type_name',DB::raw("DATE_FORMAT(statement.created_at,'%d/%m/%Y') as created_at"))
+        $rs_log = DB::table('statement_log')
+            ->select('log_id','product_name','balance','description','log_statement_id','log_type_id',DB::raw("DATE_FORMAT(statement_log.created_at,'%d/%m/%Y') as created_date"),"created_at")
             ->LEFTjoin('ledger_type','ledger_type.type_id','=','statement_log.log_type_id')
-            ->LEFTjoin('statement','statement.statement_id','=','statement_log.log_statement_id')
+            ->where('log_id',$log_id);
+        return $rs_log->get();
+    }
+    public function get_created_at($log_id){
+        $rs_log = DB::table('statement_log')
+            ->select("created_at")
             ->where('log_id',$log_id);
         return $rs_log->get();
     }

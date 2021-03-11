@@ -41,7 +41,7 @@
     <div class="form-group">
         <label class = "col-md-3 text-right"> Date </label>
         <label class = "col-md-1"> &emsp; : </label>
-        <p class = "col-md-6 text-left">{{$row->created_at}}</p>
+        <p class = "col-md-6 text-left">{{$row->created_date}}</p>
     </div><br><br>
     <div class="form-group">
         <label class = "col-md-3 text-right"> Product Name </label>
@@ -73,7 +73,7 @@
         <label class="col-md-6 "><input class="form-control" name="description" id="description" type="text" value = "{{$row->description}}">  </label>
     </div><br><br>
     <div class="form-group col-md-12 text-center">
-        <a href="{{action('Ledger_controller@show_ledger_detail',$row->log_statement_id)}}" class="btn btn-secondary">Cancel</a>
+        <a href="{{action('Ledger_controller@show_ledger_detail',$row->created_at)}}" class="btn btn-secondary">Cancel</a>
         @endforeach 
         <button type="submit" class="btn btn-primary"> Submit</button>
     </div><br><br>
