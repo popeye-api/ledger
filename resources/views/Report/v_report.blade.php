@@ -10,15 +10,6 @@
 </nav>
 <!-- <div class="container"> -->
 <div class="container-fluid">
-
-  <nav class="nav nav-tabs">
-    <a class="nav-item nav-link active" style="color:black;" id="nav-Year-tab" data-toggle="tab" href="#nav-Year" role="tab" aria-controls="nav-Year" aria-selected="true"> Year </a>
-    <a class="nav-item nav-link" style="color:black;" id="nav-month-tab" data-toggle="tab" href="#nav-month" role="tab" aria-controls="nav-month" aria-selected="false"> Month </a>
-  </nav>
-            
-  <div class="tab-content" id="nav-tabContent">
-      <!-- tab Year -->
-      <div class="tab-pane fade show active" id="nav-Year" role="tabpanel" aria-labelledby="nav-Year-tab">
         <h3>The table shows the total savings for each month.</h3>
         <hr>
         <!-- start div รูปไฟล์ excel -->
@@ -34,19 +25,18 @@
         <!-- end div รูปไฟล์ excel -->
 
         <!-- start input datetime -->
-        <div class="col-md-4" style="float:left;">
+        <!-- <div class="col-md-4" style="float:left;">
         <select class="form-select" aria-label="Default select example">
         <option selected>Year</option>
         <option value="1">One</option>
         <option value="2">Two</option>
         <option value="3">Three</option>
         </select>
-        </div>
+        </div> -->
         <!-- end input datetime -->
 
         <!-- <div class="col-md-4" style="float:center;"> -->
-        <table id="table" class="table" style="width:100%">
-        <!-- start select ประเภท -->
+        <table id="myTable" class="table" style="width:100%">
         <thead class="thead-dark ">
             <tr>
             <th scope="col" style="text-align:center;">Month</th>
@@ -57,61 +47,88 @@
         <tbody id="data">
             <tr>
             <td>January</td>
-            <tr>
+            <?php 
+              $balance = 0;
+              foreach($result as $row){
+                if(date('m',strtotime($row->created_at)) == 01){
+                  if($row->log_type_id == 1){
+                    $balance += $row->balance;
+                  }
+                  if($row->log_type_id == 2){
+                    $balance -= $row->balance;
+                  }
+                }
+              }
+            ?>
+            <td><?php echo $balance ?></td>
+            </tr>
             <tr>
             <td>February</td>
-            <tr>
+            <?php 
+              $balance_feb = 0;
+              foreach($result as $row){
+                if(date('m',strtotime($row->created_at)) == 02){
+                  if($row->log_type_id == 1){
+                    $balance_feb += $row->balance;
+                  }
+                  if($row->log_type_id == 2){
+                    $balance_feb -= $row->balance;
+                  }
+                }
+              }
+            ?>
+            <td><?php echo $balance_feb ?></td>
+            </tr>
             <tr>
             <td>March</td>
-            <tr>
+            <?php 
+              $balance_mar = 0;
+              foreach($result as $row){
+                if(date('m',strtotime($row->created_at)) == 03){
+                  if($row->log_type_id == 1){
+                    $balance_mar += $row->balance;
+                  }
+                  if($row->log_type_id == 2){
+                    $balance_mar -= $row->balance;
+                  }
+                }
+              }
+            ?>
+            <td><?php echo $balance_mar ?></td>
+            </tr>
             <tr>
             <td>April</td>
-            <tr>
+            </tr>
             <tr>
             <td>May</td>
-            <tr>
+            </tr>
             <tr>
             <td>June</td>
-            <tr>
+            </tr>
             <tr>
             <td>July</td>
-            <tr>
+            </tr>
             <tr>
             <td>August</td>
-            <tr>
+            </tr>
             <tr>
             <td>September</td>
-            <tr>
+            </tr>
             <tr>
             <td>October </td>
-            <tr>
+            </tr>
             <tr>
             <td>November </td>
-            <tr>
+            </tr>
             <tr>
             <td>December </td>
-            <tr>
+            </tr>
             <tr>
             <td colspan="2" style="text-align: center;">Total </td>
-            <tr>
+            </tr>
         </tbody>
         </table>
           
-      </div>    
-  
-      <!-- tab Month -->
-      <div class="tab-pane fade" id="nav-month" role="tabpanel" aria-labelledby="nav-month-tab">
-          
-      </div>
-  </div>
-
-
-
-    
-
-
- 
-
 
 </div>
 
@@ -122,10 +139,6 @@
 
 
 @section('script')
-
-
-
-
 @stop
 
 @section('footer')
