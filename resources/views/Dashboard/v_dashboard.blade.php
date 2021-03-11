@@ -15,20 +15,20 @@
 		die("Connection failed: " . mysqli_connect_error());
 	}
 
-  $sql = "SELECT * FROM ledger_account
-          WHERE ledger_user_id = $id_session";
-	$result = mysqli_query($conn, $sql);
+//   $sql = "SELECT * FROM ledger_account
+//           WHERE ledger_user_id = $id_session";
+// 	$result = mysqli_query($conn, $sql);
 
-	if (mysqli_num_rows($result) > 0) {
+// 	if (mysqli_num_rows($result) > 0) {
 
-		while($row = mysqli_fetch_assoc($result)) {
+// 		while($row = mysqli_fetch_assoc($result)) {
 			
-			$labels[] = $row['created_at'];
+// 			$labels[] = $row['created_at'];
 			
-			$data[] = $row['ledger_account_balance'];
-		}
-	}
-	mysqli_close($conn);
+// 			$data[] = $row['ledger_account_balance'];
+// 		}
+// 	}
+// 	mysqli_close($conn);
 ?>
 
 <!DOCTYPE html>
@@ -61,7 +61,32 @@
 	  </style>
   
   <body class="bg">
-    
+<?php 
+	$balance_feb = 0;
+	foreach($result as $row){
+	  if(date('m',strtotime($row->created_at)) == 02){
+		if($row->log_type_id == 1){
+		  $balance_feb += $row->balance;
+		}
+		if($row->log_type_id == 2){
+		  $balance_feb -= $row->balance;
+		}
+	  }
+	}
+	
+	$balance_mar = 0;
+	foreach($result as $row){
+	if(date('m',strtotime($row->created_at)) == 03){
+		if($row->log_type_id == 1){
+		$balance_mar += $row->balance;
+		}
+		if($row->log_type_id == 2){
+		$balance_mar -= $row->balance;
+		}
+	}
+	}
+	$data = [10,$balance_feb,$balance_mar,100,55,10];
+?>
 	  
 
 	<canvas id="myChart" class="size item-center "></canvas>
