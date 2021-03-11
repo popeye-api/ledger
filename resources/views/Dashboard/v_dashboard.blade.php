@@ -10,12 +10,13 @@
 	$dbname = "ledger";
 	$conn = mysqli_connect($servername, $username, $password, $dbname);
 
+  $id_session = Auth::user()->user_id;
 	if (!$conn) {
 		die("Connection failed: " . mysqli_connect_error());
 	}
 
   $sql = "SELECT * FROM ledger_account
-          WHERE ledger_user_id = 1";
+          WHERE ledger_user_id = $id_session";
 	$result = mysqli_query($conn, $sql);
 
 	if (mysqli_num_rows($result) > 0) {
@@ -39,23 +40,38 @@
 	<title>ChartJs</title>
 
   </head>
+  	<style>
+		  .size{
+				height: 1400px;
+				width: 1300px;
+				margin-left:auto; 
+				margin-right:auto;
+				margin-left:auto;
+		  }
+
+		  .bg{
+			  background-color: #DCDCDC;
+		  }
+
+	  </style>
   
-  <body>
+  <body class="bg">
+    
 	  
 
-	<canvas id="myChart" width="1500" height="650"></canvas>
+	<canvas id="myChart" class="size item-center "></canvas>
 	
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.js"></script>
 	<script>
 	var ctx = document.getElementById("myChart");
 	var myChart = new Chart(ctx, {
-		//type: 'bar',
+		// type: 'bar',
 		type: 'line',
 		// type: 'pie',
 		data: {
 			labels: ['January','February','March','April','May','June','July','August','September','October','November','December'],
 			datasets: [{
-				label: 'Report',
+				label: 'Total Ledger',
 				data: <?=json_encode($data, JSON_NUMERIC_CHECK);?>,
 				backgroundColor: [
 					'rgba(255,208,189, 0.8)',
@@ -75,8 +91,11 @@
 				],
 				borderWidth: 0
 			}]
-		},
+    },
+    
+    
 		options: {
+      
 			scales: {
 				yAxes: [{
 					ticks: {
@@ -87,9 +106,10 @@
 			 responsive: false,
 			 title: {
 				display: true,
-				text: 'กราฟสรุปรายรับ-รายจ่าย'
+				text: 'Total Ledger Graph (Month)'
 			}
-		}
+    
+  }
 	});
 	</script>
 		
