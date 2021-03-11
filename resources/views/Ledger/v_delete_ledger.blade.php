@@ -10,7 +10,7 @@
 ?>
 <!DOCTYPE html>
     <!-- modal delete-->
-    <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="delete" tabindex="-1" role="dialog" data-keyboard="false" data-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -25,8 +25,8 @@
                         <p>Please press confirm to delete ledger information. </p>
                     </div>
                     <div class="modal-footer">
-                            <button type="button" class="btn btn-light" data-dismiss="modal" >ยกเลิก</button>
-                            <button type="submit" class="btn btn-primary" value = "อัพเดท">ยืนยัน</button>
+                            <button type="button" class="btn btn-light" data-dismiss="modal" >cancle</button>
+                            <button type="submit" class="btn btn-primary" value = "อัพเดท">Confirm</button>
                     </div>
                     <input type="hidden" name="_method" value="DELETE">
                 </form>

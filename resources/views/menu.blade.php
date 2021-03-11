@@ -124,8 +124,8 @@
                     <form>
                         <p>Do you want to logout?</p>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-dark" data-dismiss="modal">Cancel</button>
-                            <button type="button" class="btn btn-success"  ><a class="nav-link d-flex align-items-center py-0 text-white" href="{{ url('/logout') }}">Comfirm</a></button> 
+                            <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
+                            <a class="nav-link d-flex align-items-center py-0 text-white" href="{{ url('/logout') }}"><button type="button" class="btn btn-primary">Comfirm</button> </a>
                         </div>
                     </form>
                 </div>
