@@ -58,7 +58,7 @@
                         <?php $row->balance = -($row->balance) ?>
                     @endif
                     <td class="text-center">
-                        <button type="button" id="customer_edit_button" class="btn btn-warning text-dark d" data-toggle="modal" data-target=".bd-edit-modal-lg" style="" >
+                        <button type="button" id="customer_edit_button" class="btn btn-warning text-dark d" data-toggle="modal" data-target=".bd-edit-modal-lg" style="background:orange;" >
                             <a class="nav-link d-flex align-items-center py-0 clickable-row" style="color:#6D6D6D;" data-href="{{action('Ledger_controller@show_ledger_edit',$row->log_id)}}">
                                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pen menu-icon " fill="currentColor" xmlns="http://www.w3.org/2000/svg" >
                                     <path fill-rule="evenodd" d="M5.707 13.707a1 1 0 0 1-.39.242l-3 1a1 1 0 0 1-1.266-1.265l1-3a1 1 0 0 1 .242-.391L10.086 2.5a2 2 0 0 1 2.828 0l.586.586a2 2 0 0 1 0 2.828l-7.793 7.793zM3 11l7.793-7.793a1 1 0 0 1 1.414 0l.586.586a1 1 0 0 1 0 1.414L5 13l-3 1 1-3z"/>

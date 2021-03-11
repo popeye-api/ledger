@@ -68,7 +68,8 @@ class Ledger_controller extends Controller
             'product_name'=> 'required',
             'type'=> 'required',
             'balance'=>'required',
-            'description'=>'required'
+            'description'=>'required',
+
         ]);
        
         $rs_log = new Statement_log([
@@ -78,19 +79,8 @@ class Ledger_controller extends Controller
             'balance' => $request->get('balance'),
             'description' => $request->get('description')
         ]);
-        // $rs_statement = new Statement([
-        //     'statement_balance' => 
-        // ]);
-        // $rs_statement->statement_balance
-        // $rs_statement->save();
-        // $rs_log = new Statement_log([
-        //     // 'date' =>  $date,
-        //     'product_name' => $request->get('product_name'),
-        //     'log_type_id' => $request->get('type'),
-        //     'balance' => $request->get('balance'),
-        //     'description' => $request->get('description')
-        // ]);
-
+        $rs_log->log_user_id = Auth::user()->user_id;
+        $rs_log->is_active = 0;
         $rs_log->save();
         return redirect("v_ledger");
     }

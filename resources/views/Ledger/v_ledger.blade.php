@@ -125,10 +125,16 @@
                 </tr>
             </thead>
             <tbody>
-                <?php $sum=0;?>
+                <?php $sum=0; $sum_com=0;?>
                 @foreach($result_date as $row_date)
+                        <?php 
+                            $day = substr("$row_date->created_at",0,2);              
+                            $month = substr("$row_date->created_at",3,2);              
+                            $year= substr("$row_date->created_at",6,4);                
+                            $date = $year.'-'.$month.'-'.$day;
+                        ?>
                     <tr style="cursor:pointer">
-                        <td class='clickable-row text-center'data-href="{{action('Ledger_controller@show_ledger_detail',$row_date->created_at)}}">{{$row_date->created_at}}</td>
+                        <td class='clickable-row text-center'data-href="{{action('Ledger_controller@show_ledger_detail',$date)}}">{{$row_date->created_at}}</td>
                         @foreach($result as $row)
                             @if($row->created_at == $row_date->created_at)
                                 @if($row->log_type_id == 2)
@@ -137,8 +143,10 @@
                             <?php $sum += $row->balance ?>
                             @endif
                         @endforeach
-                        <td class='clickable-row text-right' data-href="{{action('Ledger_controller@show_ledger_detail',$row_date->created_at)}}">{{$sum}}</td>
-                        <td class='clickable-row text-right' data-href="{{action('Ledger_controller@show_ledger_detail',$row_date->created_at)}}"></td>
+                        <?php $sum_com += $sum; ?>
+                        <td class='clickable-row text-right' data-href="{{action('Ledger_controller@show_ledger_detail',$date)}}">{{$sum}}</td>
+                        <?php $sum = 0;?>
+                        <td class='clickable-row text-right' data-href="{{action('Ledger_controller@show_ledger_detail',$date)}}">{{$sum_com}}</td>
                     </tr>
                 @endforeach 
             </tbody>
