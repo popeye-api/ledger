@@ -17,6 +17,7 @@ class Statement_log extends Model
     public function get_date(){
         $rs_log = DB::table('statement_log')
             ->select(DB::raw("DATE_FORMAT(statement_log.created_at,'%d-%m-%Y') as created_at"))
+            ->where('is_active',0) 
             ->orderBy('created_at','asc')
             ->groupBy('created_at');
         return $rs_log->get();
@@ -24,7 +25,9 @@ class Statement_log extends Model
 
     public function get_log(){
         $rs_log = DB::table('statement_log')
-            ->select('balance',DB::raw("DATE_FORMAT(statement_log.created_at,'%d-%m-%Y') as created_at"),'log_type_id','log_user_id');
+            ->select('balance',DB::raw("DATE_FORMAT(statement_log.created_at,'%d-%m-%Y') as created_at"),'log_type_id','log_user_id')
+            ->where('is_active',0)
+            ->orderBy('created_at','asc');
         return $rs_log->get();
     }
 
@@ -32,7 +35,8 @@ class Statement_log extends Model
         $rs_log = DB::table('statement_log')
             ->select('statement_log.created_at as created_at','log_id','product_name','balance','description','log_type_id','type_name',DB::raw("DATE_FORMAT(statement_log.created_at,'%d/%m/%Y') as created_at"))
             ->LEFTjoin('ledger_type','ledger_type.type_id','=','statement_log.log_type_id')
-            ->where('statement_log.created_at',$date);
+            ->where('statement_log.created_at',$date)
+            ->where('is_active',0);
         return $rs_log->get();
     }
     
