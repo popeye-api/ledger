@@ -44,7 +44,7 @@
                         </div>
                 </div>
                 <label>
-                <button type="button" id="editInform" class="btn btn-secondary " style="position:absolute; right:20px; top:101px;" >Edit</button>
+                <button type="button" id="editInform" class="btn btn-secondary " style="position:absolute; left:30px; bottom:10px;" >Edit</button>
                 <button type="button" id="cancel" name ="cancel" class="btn btn-secondary " style="position:absolute; right:105px; bottom:10px;" style="display:none;" >Cancel</button>
                 <button type="submit" id="save" class="btn btn-success" style="position:absolute; right:20px; bottom:10px;" >Save</button>
                 </label>
@@ -91,7 +91,7 @@
                             </div>
                         </div>
                         <label>
-                        <button type="button" id="editpass" class="btn btn-secondary " style="position:absolute; right:20px; top:101px;" >Edit</button>
+                        <button type="button" id="editpass" class="btn btn-secondary " style="position:absolute; left:30px; bottom:10px;" >Edit</button>
                         <button type="button" id="cancel2" name ="cancel" class="btn btn-secondary " style="position:absolute; right:105px; bottom:10px;" style="display:none;" >Cancel</button>
                         <button type="submit" id="save2" class="btn btn-success" style="position:absolute; right:20px; bottom:10px;" >Save</button>
                         </label>
