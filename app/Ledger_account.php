@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Ledger_account extends Model
 {
+    protected $table = 'Ledger_account';
     //กำหนด primary key ของ model Ledger_account_id
     protected $primaryKey = 'ledger_account_id';
     //กำหนด fill ที่ใช้งานให้กับ model Ledger_account_id

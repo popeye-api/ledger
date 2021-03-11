@@ -18,7 +18,7 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-
+// Route::get('v_dashboard', 'LinechartController@index');
 
 /*---------- user profile ----------*/
 Route::resource('Profile','Profile_manage_controller');
@@ -29,6 +29,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+// Route::get('echart', 'EchartController@index');
 Route::get('v_dashboard','Dashboard_controller@show_dashboard');
 Route::get('v_dashboard_year','Dashboard_controller@show_dashboard_year');
 

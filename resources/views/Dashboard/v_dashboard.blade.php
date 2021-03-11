@@ -1,43 +1,98 @@
-<!-- @extends('menu') -->
-<!-- @section('title','dashboard') -->
+@extends('menu')
+@section('title','dashboard')
+@section('content')
 
-<!-- @section('content') -->
-<!-- Page wrapper -->
-<!DOCTYPE html> 
-@section('script')
-<nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item active" aria-current="page">รายงานสรุปเชิงสถิติ</li>
-    </ol>
-  </nav>
 
+<?php
+	$servername = "localhost";
+	$username = "root";
+	$password = "";
+	$dbname = "ledger";
+	$conn = mysqli_connect($servername, $username, $password, $dbname);
+
+	if (!$conn) {
+		die("Connection failed: " . mysqli_connect_error());
+	}
+
+  $sql = "SELECT * FROM ledger_account
+          WHERE ledger_user_id = 1";
+	$result = mysqli_query($conn, $sql);
+
+	if (mysqli_num_rows($result) > 0) {
+
+		while($row = mysqli_fetch_assoc($result)) {
+			
+			$labels[] = $row['created_at'];
+			
+			$data[] = $row['ledger_account_balance'];
+		}
+	}
+	mysqli_close($conn);
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>ChartJs</title>
+
+  </head>
   
-  
-    <!-- Chart's container -->
-    <div id="chart" style="height: 750px;"></div>
+  <body>
+	  
 
-
-
-    <!-- Charting library -->
-    <script src="https://unpkg.com/echarts/dist/echarts.min.js"></script>
-    <!-- Chartisan -->
-    <script src="https://unpkg.com/@chartisan/echarts/dist/chartisan_echarts.js"></script>
-    <!-- Your application script -->
-  
-    <script>
-      const chart = new Chartisan({
-        el: '#chart',
-        url: "@chart('sample_chart')",
-        hooks: new ChartisanHooks()
-          .colors()
-          .title('Sum the amount of income and expenditure each year')
-          .legend({ position: 'bottom' })
-          .tooltip()
-          .datasets(['line'])
-          ,
-      });
-    
-    </script>
-
-
-@stop
+	<canvas id="myChart" width="1500" height="650"></canvas>
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.js"></script>
+	<script>
+	var ctx = document.getElementById("myChart");
+	var myChart = new Chart(ctx, {
+		//type: 'bar',
+		type: 'line',
+		// type: 'pie',
+		data: {
+			labels: ['January','February','March','April','May','June','July','August','September','October','November','December'],
+			datasets: [{
+				label: 'Report',
+				data: <?=json_encode($data, JSON_NUMERIC_CHECK);?>,
+				backgroundColor: [
+					'rgba(255,208,189, 0.8)',
+					'rgba(255,208,189, 0.8)',
+					'rgba(255,208,189, 0.8)',
+					'rgba(255,208,189, 0.8)',
+					'rgba(255,208,189, 0.8)',
+					'rgba(255,208,189, 0.8)'
+				],
+				borderColor: [
+					'rgba(235,91,35, 0.8)',
+					'rgba(235,91,35, 0.8)',
+					'rgba(235,91,35, 0.8)',
+					'rgba(235,91,35, 0.8)',
+					'rgba(235,91,35, 0.8)',
+					'rgba(235,91,35, 0.8)'
+				],
+				borderWidth: 0
+			}]
+		},
+		options: {
+			scales: {
+				yAxes: [{
+					ticks: {
+						beginAtZero:true
+					}
+				}]
+			},
+			 responsive: false,
+			 title: {
+				display: true,
+				text: 'กราฟสรุปรายรับ-รายจ่าย'
+			}
+		}
+	});
+	</script>
+		
+  </body>
+</html>
+@endsection
