@@ -34,43 +34,50 @@
 <div class="card shadow-lg bg-white  item-center " style="max-width:65rem;">
     <div class="card-header bg-dark" style="color:white;"><b>EDIT STATEMENT</b></div>
     <div class="card-body">
-
-<form method="post" class="col-md-12 text-center" action="">
+    @foreach($result as $row)
+<form method="post" class="col-md-12 text-center" action="{{route('v_update', $row->log_id)}}">
     {{csrf_field()}}
+    
     <div class="form-group">
         <label class = "col-md-3 text-right"> Date </label>
         <label class = "col-md-1"> &emsp; : </label>
-        <p class = "col-md-6 text-left"></p>
+        <p class = "col-md-6 text-left">{{$row->created_at}}</p>
     </div><br><br>
     <div class="form-group">
         <label class = "col-md-3 text-right"> Product Name </label>
         <label class = "col-md-1"> &emsp; : </label>
-        <label class = "col-md-6"> <input class="form-control" type="text" name="product_name" id="product_name"></label>
+        <label class = "col-md-6"> <input class="form-control" type="text" name="product_name" id="product_name" value = "{{$row->product_name}}"></label>
     </div><br><br>
     <div class="form-group">
         <label class = "col-md-3 text-right" >Type </label>
         <label class = "col-md-1"> &emsp; : </label>
         <label class = "col-md-6" style = "">
-            <select class="form-control" id="type" name="type" aria-label="Default select example">
+            <select class="form-control" id="type" name="type" aria-label="Default select example"> 
                 <option value="1">income</option>
+                @if ($row->log_type_id == 2)
+                <option value="2" selected>expense</option>
+                @elseif ($row->log_type_id == 1)
                 <option value="2">expense</option>
+                @endif
             </select>
         </label>
     </div><br><br>
     <div class="form-group ">
         <label class = "col-md-3 text-right">Balance  </label>
         <label class = "col-md-1"> &emsp; : </label>
-        <label class = "col-md-6"><input class="form-control" type="text" name="balance" id="balance" placeholder="">  </label>
+        <label class = "col-md-6"><input class="form-control" type="text" name="balance" id="balance" value = "{{$row->balance}}">  </label>
     </div><br><br>
     <div class="form-group ">
         <label class="col-md-3 text-right" >Description  </label>
         <label class = "col-md-1"> &emsp; : </label>
-        <label class="col-md-6 "><input class="form-control" name="description" id="description" type="text" placeholder="" >  </label>
+        <label class="col-md-6 "><input class="form-control" name="description" id="description" type="text" value = "{{$row->description}}">  </label>
     </div><br><br>
     <div class="form-group col-md-12 text-center">
-        <a href="" class="btn btn-secondary">Cancel</a>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <a href="{{action('Ledger_controller@show_ledger_detail',$row->log_statement_id)}}" class="btn btn-secondary">Cancel</a>
+        @endforeach 
+        <button type="submit" class="btn btn-primary"> Submit</button>
     </div><br><br>
+    <input type="hidden" name="_method" value="put">
   </form>
 </div>
 </div>
