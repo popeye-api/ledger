@@ -1,5 +1,5 @@
 @extends('menu')
-@section('title','add ledger account')
+@section('title','edit ledger account')
 
 @section('content')
 <!-- Page wrapper -->
@@ -19,12 +19,12 @@
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item" aria-current="page">Ledger account</li>
-        <li class="breadcrumb-item active" aria-current="page">Add ledger account</li>
+        <li class="breadcrumb-item active" aria-current="page">Edit ledger account</li>
     </ol>
 </nav>
 <div class="container-fluid">
-    <h3>Add ledger
-        <a class="nav-link d-flex align-items-center py-0" style="color:black; float:right;" href="{{ url('v_ledger') }}">
+    <h3>Edit ledger
+        <a class="nav-link d-flex align-items-center py-0 clickable-row" style="color:black; float:right;" href="">
             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-return-left menu-icon" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z"/>
             </svg>
@@ -32,15 +32,15 @@
     </h3>
     <hr>
 <div class="card shadow-lg bg-white  item-center " style="max-width:65rem;">
-    <div class="card-header bg-dark" style="color:white;"><b>ADD STATEMENT</b></div>
+    <div class="card-header bg-dark" style="color:white;"><b>EDIT STATEMENT</b></div>
     <div class="card-body">
 
-<form method="post" class="col-md-12 text-center" action="{{action('Ledger_controller@store')}}">
+<form method="post" class="col-md-12 text-center" action="">
     {{csrf_field()}}
     <div class="form-group">
         <label class = "col-md-3 text-right"> Date </label>
         <label class = "col-md-1"> &emsp; : </label>
-        <p class = "col-md-6 text-left"><?php  echo date("d/m/Y"); ?></p>
+        <p class = "col-md-6 text-left"></p>
     </div><br><br>
     <div class="form-group">
         <label class = "col-md-3 text-right"> Product Name </label>
@@ -68,7 +68,7 @@
         <label class="col-md-6 "><input class="form-control" name="description" id="description" type="text" placeholder="" >  </label>
     </div><br><br>
     <div class="form-group col-md-12 text-center">
-        <a href="{{ 'v_ledger' }}" class="btn btn-secondary">Cancel</a>
+        <a href="" class="btn btn-secondary">Cancel</a>
         <button type="submit" class="btn btn-primary">Submit</button>
     </div><br><br>
   </form>
@@ -79,6 +79,12 @@
 
     @section('script')
     <script>
+    jQuery(document).ready(function($) {
+        $(".clickable-row").click(function() {
+            window.location.href  = $(this).data("href");
+        });
+    });
+    
     </script>
     @stop
 @stop
