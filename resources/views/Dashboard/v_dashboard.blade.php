@@ -40,6 +40,7 @@
 	<title>ChartJs</title>
 
   </head>
+  
   	<style>
 
 		  canvas{
