@@ -21,6 +21,6 @@ class Report_controller extends Controller
 
     public function export() 
     {
-        return Excel::download(new LedgerExport, 'users.xlsx');
+        return Excel::download(new LedgerExport, 'ledger.xlsx');
     }
 }
