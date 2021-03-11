@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Statement;
 use App\Statement_log;
+use App\Ledger_account;
 
 
 class Ledger_controller extends Controller
@@ -24,14 +26,18 @@ class Ledger_controller extends Controller
         return view('Ledger.v_ledger')->with('result',$rs_statement);
     }
 
-    public function show_ledger_detail()
-    {
-        return view('Ledger.v_ledger_detail');
+    public function show_ledger_detail($statement_id){
+        $data = new Statement_log();
+        $rs_statement_log = $data->get_log($statement_id);
+        return view('Ledger.v_ledger_detail')->with('result',$rs_statement_log);
     }
 
-    public function show_ledger_add()
-    {
+    public function show_ledger_add(){
         return view('Ledger.v_add_ledger');
+    }
+
+    public function show_ledger_edit($log_id){
+        return view('Ledger.v_edit_ledger')->with('result',$log_id);
     }
 
     /**
@@ -68,7 +74,19 @@ class Ledger_controller extends Controller
             'balance' => $request->get('balance'),
             'description' => $request->get('description')
         ]);
-        
+        // $rs_statement = new Statement([
+        //     'statement_balance' => 
+        // ]);
+        // $rs_statement->statement_balance
+        // $rs_statement->save();
+        // $rs_log = new Statement_log([
+        //     // 'date' =>  $date,
+        //     'product_name' => $request->get('product_name'),
+        //     'log_type_id' => $request->get('type'),
+        //     'balance' => $request->get('balance'),
+        //     'description' => $request->get('description')
+        // ]);
+
         $rs_log->save();
         return redirect("v_ledger");
     }
