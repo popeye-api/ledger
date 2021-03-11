@@ -59,7 +59,7 @@
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-left">Email </label>
                             <div class="col-md-7" >  
-                                {{$row->email}}"  
+                                {{$row->email}}
                             </div>
                         </div>
                         
