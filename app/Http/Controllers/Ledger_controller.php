@@ -136,8 +136,13 @@ class Ledger_controller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($log_id)
     {
-        //
+        $qu_log = Statement_log::find($log_id);
+        $qu_log->is_active = 1;
+        $qu_log->save();
+        $data = new Statement_log();
+        $rs_created = $data->get_created_at($log_id);
+        return redirect()->action('Ledger_controller@show_ledger_detail',$rs_created[0]->created_at);
     }
 }

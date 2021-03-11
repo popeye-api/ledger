@@ -91,7 +91,7 @@
 </div>
 
 
-
+    @extends('Ledger.v_delete_ledger')
     @section('script')
     <script>
     jQuery(document).ready(function($) {
