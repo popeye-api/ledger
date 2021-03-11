@@ -40,5 +40,8 @@ Route::resource('v_ledger','Ledger_controller');
 Route::get('v_ledger_detail/{date}','Ledger_controller@show_ledger_detail');
 Route::get('v_ledger_add','Ledger_controller@show_ledger_add');
 Route::get('v_ledger_edit/{log_id}','Ledger_controller@show_ledger_edit');
-
+Route::put('/{log_id}', [
+    'uses' => 'Ledger_controller@update',
+    'as' => 'v_update'
+ ]);
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
