@@ -75,7 +75,7 @@
   }
 </style>
 </head>
-<body>
+
   <nav class="nav navbar-expand-sm navbar-dark bg-dark">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -134,10 +134,10 @@
 
 
 
-<!-- Page wrapper -->
+{{-- <!-- Page wrapper -->
 <div class="page-wrapper">
   @yield('content')
-</div>
+</div> --}}
 
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -177,7 +177,7 @@
   }
 </script>    
 
-
-@yield('script')
+<body>
+@yield('content')
 </body>
 </html>
