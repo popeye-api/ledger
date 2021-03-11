@@ -63,6 +63,19 @@
   
   <body class="bg">
 <?php 
+
+	$balance_jan = 0;
+	foreach($result as $row){
+	if(date('m',strtotime($row->created_at)) == '01'){
+		if($row->log_type_id == 1){
+		$balance_jan += $row->balance;
+		}
+		if($row->log_type_id == 2){
+		$balance_jan -= $row->balance;
+		}
+	}
+	}
+
 	$balance_feb = 0;
 	foreach($result as $row){
 	  if(date('m',strtotime($row->created_at)) == 02){
@@ -86,7 +99,118 @@
 		}
 	}
 	}
-	$data = [10,$balance_feb,$balance_mar,100,55,10];
+
+	$balance_april = 0;
+	foreach($result as $row){
+	if(date('m',strtotime($row->created_at)) == '04'){
+		if($row->log_type_id == 1){
+		$balance_april += $row->balance;
+		}
+		if($row->log_type_id == 2){
+		$balance_april -= $row->balance;
+		}
+	}
+	}
+
+	$balance_may = 0;
+	foreach($result as $row){
+	if(date('m',strtotime($row->created_at)) == '05'){
+		if($row->log_type_id == 1){
+		$balance_may += $row->balance;
+		}
+		if($row->log_type_id == 2){
+		$balance_may -= $row->balance;
+		}
+	}
+	}
+
+	$balance_june = 0;
+	foreach($result as $row){
+	if(date('m',strtotime($row->created_at)) == '06'){
+		if($row->log_type_id == 1){
+		$balance_june += $row->balance;
+		}
+		if($row->log_type_id == 2){
+		$balance_june -= $row->balance;
+		}
+	}
+	}
+
+	$balance_july = 0;
+	foreach($result as $row){
+	if(date('m',strtotime($row->created_at)) == '07'){
+		if($row->log_type_id == 1){
+		$balance_july += $row->balance;
+		}
+		if($row->log_type_id == 2){
+		$balance_july -= $row->balance;
+		}
+	}
+	}
+
+	$balance_aug = 0;
+	foreach($result as $row){
+	if(date('m',strtotime($row->created_at)) == '08'){
+		if($row->log_type_id == 1){
+		$balance_aug += $row->balance;
+		}
+		if($row->log_type_id == 2){
+		$balance_aug -= $row->balance;
+		}
+	}
+	}
+
+	$balance_sep = 0;
+	foreach($result as $row){
+	if(date('m',strtotime($row->created_at)) == '09'){
+		if($row->log_type_id == 1){
+		$balance_sep += $row->balance;
+		}
+		if($row->log_type_id == 2){
+		$balance_sep -= $row->balance;
+		}
+	}
+	}
+
+	$balance_oct = 0;
+	foreach($result as $row){
+	if(date('m',strtotime($row->created_at)) == '10'){
+		if($row->log_type_id == 1){
+		$balance_oct += $row->balance;
+		}
+		if($row->log_type_id == 2){
+		$balance_oct -= $row->balance;
+		}
+	}
+	}
+
+	$balance_nov = 0;
+	foreach($result as $row){
+	if(date('m',strtotime($row->created_at)) == '11'){
+		if($row->log_type_id == 1){
+		$balance_nov += $row->balance;
+		}
+		if($row->log_type_id == 2){
+		$balance_nov -= $row->balance;
+		}
+	}
+	}
+
+	$balance_dec = 0;
+	foreach($result as $row){
+	if(date('m',strtotime($row->created_at)) == '12'){
+		if($row->log_type_id == 1){
+		$balance_dec += $row->balance;
+		}
+		if($row->log_type_id == 2){
+		$balance_dec -= $row->balance;
+		}
+	}
+	}
+
+
+	
+	$data = [$balance_jan,$balance_feb,$balance_mar,$balance_april,$balance_may,$balance_june,$balance_july,$balance_aug,$balance_sep,$balance_oct,$balance_nov,$balance_dec];
 ?>
 	  
 
