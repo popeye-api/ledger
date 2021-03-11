@@ -125,27 +125,25 @@
                 </tr>
             </thead>
             <tbody>
-            <?php $sum=0;?>
-                @foreach($result as $row)
-                <?php                    
-                    $day = substr("$row->created_at",0,2);               //เก็บ ปี ที่สิ้นสุด
-                    $month = substr("$row->created_at",3,2);              //เก็บ เดือน ที่สิ้นสุด
-                    $year = substr("$row->created_at",6,4);                //เก็บ วัน ที่สิ้นสุด 
-                    $date_all = $year.'-'.$month.'-'.$day;  //เก็บ ปี-เดือน-วัน ที่สิ้นสุด 
-                    $sum += $row->statement_balance;
-                ?>
+                <?php $sum=0;?>
+                @foreach($result_date as $row_date)
                     <tr style="cursor:pointer">
-                        <td class='clickable-row text-center' data-href="{{action('Ledger_controller@show_ledger_detail',$row->statement_id)}}">{{$row->created_at}}</td>
-                        <td class='clickable-row text-right' data-href="{{action('Ledger_controller@show_ledger_detail',$row->statement_id)}}">{{$row->statement_balance}}</td>
-                        <td class='clickable-row text-right' data-href="{{action('Ledger_controller@show_ledger_detail',$row->statement_id)}}">{{$sum}}</td>
+                        <td class='clickable-row text-center'data-href="{{action('Ledger_controller@show_ledger_detail',$row_date->created_at)}}">{{$row_date->created_at}}</td>
+                        @foreach($result as $row)
+                            @if($row->created_at == $row_date->created_at)
+                                @if($row->log_type_id == 2)
+                                    <?php $row->balance = -($row->balance) ?>
+                                @endif
+                            <?php $sum += $row->balance ?>
+                            @endif
+                        @endforeach
+                        <td class='clickable-row text-right' data-href="{{action('Ledger_controller@show_ledger_detail',$row_date->created_at)}}">{{$sum}}</td>
+                        <td class='clickable-row text-right' data-href="{{action('Ledger_controller@show_ledger_detail',$row_date->created_at)}}"></td>
                     </tr>
                 @endforeach 
             </tbody>
         </table>
-        
-   
-    
-    
+    </div>    
 </div>
 
 
@@ -167,6 +165,8 @@
             window.location.href  = $(this).data("href");
         });
     });
+
+        
 
     // window.onclick = function(event) {
     //     if (!event.target.matches('.dropbtn')) {

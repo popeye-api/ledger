@@ -21,14 +21,18 @@ class Ledger_controller extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
-        $data = new Statement();
-        $rs_statement = $data->get_statement();
-        return view('Ledger.v_ledger')->with('result',$rs_statement);
+        $data = new Statement_log();
+        $rs_log = $data->get_log();
+        $rs_date = $data->get_date();
+        return view('Ledger.v_ledger',[
+            'result'=> $rs_log,
+            'result_date'=> $rs_date
+        ]);
     }
 
-    public function show_ledger_detail($statement_id){
+    public function show_ledger_detail($created_at){
         $data = new Statement_log();
-        $rs_statement_log = $data->get_log($statement_id);
+        $rs_statement_log = $data->get_log_id($created_at);
         return view('Ledger.v_ledger_detail')->with('result',$rs_statement_log);
     }
 
