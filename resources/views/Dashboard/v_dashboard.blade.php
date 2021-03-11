@@ -41,9 +41,14 @@
 
   </head>
   	<style>
+
+		  canvas{
+  			width:1500px !important;
+  			height:900px !important;
+
+		}
 		  .size{
-				height: 1400px;
-				width: 1300px;
+				
 				margin-left:auto; 
 				margin-right:auto;
 				margin-left:auto;
@@ -103,7 +108,8 @@
 					}
 				}]
 			},
-			 responsive: false,
+			 responsive: true,
+			 maintainAspectRatio: false,
 			 title: {
 				display: true,
 				text: 'Total Ledger Graph (Month)'
