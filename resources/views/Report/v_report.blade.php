@@ -10,7 +10,7 @@
 </nav>
 <!-- <div class="container"> -->
 <div class="container-fluid">
-        <h3>The table shows the total savings for each month.</h3>
+        <h3>The table shows sum the amount of income and expenditure each year <?php echo date('Y') ?>.</h3>
         <hr>
         <!-- start div รูปไฟล์ excel -->
         <div style="float:right;">
@@ -23,20 +23,7 @@
         </form>
         </div>
         <!-- end div รูปไฟล์ excel -->
-
-        <!-- start input datetime -->
-        <!-- <div class="col-md-4" style="float:left;">
-        <select class="form-select" aria-label="Default select example">
-        <option selected>Year</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-        </select>
-        </div> -->
-        <!-- end input datetime -->
-
-        <!-- <div class="col-md-4" style="float:center;"> -->
-        <table id="myTable" class="table" style="width:100%">
+        <table id="myTable" class="table table-bordered" style="width:100%">
         <thead class="thead-dark ">
             <tr>
             <th scope="col" style="text-align:center;">Month</th>
@@ -49,18 +36,30 @@
             <td>January</td>
             <?php 
               $balance = 0;
+              $balance_jan = 0;
               foreach($result as $row){
                 if(date('m',strtotime($row->created_at)) == '01'){
                   if($row->log_type_id == 1){
-                    $balance += $row->balance;
+                    $balance_jan += $row->balance;
                   }
                   if($row->log_type_id == 2){
-                    $balance -= $row->balance;
+                    $balance_jan -= $row->balance;
                   }
                 }
               }
+
+            if( $balance_jan  <  0){
+              echo '<td style="text-align:right; color:red">'.$balance_jan.'</td>';
+            } else {
+              echo '<td style="text-align:right; color:green">'.$balance_jan.'</td>';
+            }
+            $balance += $balance_jan;
+            if( $balance < 0 ){
+              echo '<td style="text-align:right; color:red">'.$balance.'</td>';
+            } else {
+              echo '<td style="text-align:right; color:green">'.$balance.'</td>';
+            }
             ?>
-            <td><?php echo $balance ?></td>
             </tr>
             <tr>
             <td>February</td>
@@ -76,8 +75,19 @@
                   }
                 }
               }
+
+              if( $balance_feb  <  0){
+                echo '<td style="text-align:right; color:red">'.$balance_feb.'</td>';
+              } else {
+                echo '<td style="text-align:right; color:green">'.$balance_feb.'</td>';
+              }
+              $balance += $balance_feb;
+              if( $balance < 0 ){
+                echo '<td style="text-align:right; color:red">'.$balance.'</td>';
+              } else {
+                echo '<td style="text-align:right; color:green">'.$balance.'</td>';
+              }
             ?>
-            <td><?php echo $balance_feb ?></td>
             </tr>
             <tr>
             <td>March</td>
@@ -93,8 +103,19 @@
                   }
                 }
               }
+
+              if( $balance_mar  <  0){
+                echo '<td style="text-align:right; color:red">'.$balance_mar.'</td>';
+              } else {
+                echo '<td style="text-align:right; color:green">'.$balance_mar.'</td>';
+              }
+              $balance += $balance_mar;
+              if( $balance < 0 ){
+                echo '<td style="text-align:right; color:red">'.$balance.'</td>';
+              } else {
+                echo '<td style="text-align:right; color:green">'.$balance.'</td>';
+              }
             ?>
-            <td><?php echo $balance_mar ?></td>
             </tr>
             <tr>
             <td>April</td>
@@ -110,8 +131,19 @@
                   }
                 }
               }
+
+              if( $balance_april  <  0){
+                echo '<td style="text-align:right; color:red">'.$balance_april.'</td>';
+              } else {
+                echo '<td style="text-align:right; color:green">'.$balance_april.'</td>';
+              }
+              $balance += $balance_april;
+              if( $balance < 0 ){
+                echo '<td style="text-align:right; color:red">'.$balance.'</td>';
+              } else {
+                echo '<td style="text-align:right; color:green">'.$balance.'</td>';
+              }
             ?>
-            <td><?php echo $balance_april ?></td>
             </tr>
             <tr>
             <td>May</td>
@@ -127,8 +159,19 @@
                   }
                 }
               }
+   
+              if( $balance_may  <  0){
+                echo '<td style="text-align:right; color:red">'.$balance_may.'</td>';
+              } else {
+                echo '<td style="text-align:right; color:green">'.$balance_may.'</td>';
+              }
+              $balance += $balance_may;
+              if( $balance < 0 ){
+                echo '<td style="text-align:right; color:red">'.$balance.'</td>';
+              } else {
+                echo '<td style="text-align:right; color:green">'.$balance.'</td>';
+              }
             ?>
-            <td><?php echo $balance_may ?></td>
             </tr>
             <tr>
             <td>June</td>
@@ -144,8 +187,19 @@
                   }
                 }
               }
+
+              if( $balance_june  <  0){
+                echo '<td style="text-align:right; color:red">'.$balance_june.'</td>';
+              } else {
+                echo '<td style="text-align:right; color:green">'.$balance_june.'</td>';
+              }
+              $balance += $balance_june;
+              if( $balance < 0 ){
+                echo '<td style="text-align:right; color:red">'.$balance.'</td>';
+              } else {
+                echo '<td style="text-align:right; color:green">'.$balance.'</td>';
+              }
             ?>
-            <td><?php echo $balance_june ?></td>
             </tr>
             <tr>
             <td>July</td>
@@ -161,8 +215,19 @@
                   }
                 }
               }
+              
+              if( $balance_july  <  0){
+                echo '<td style="text-align:right; color:red">'.$balance_july.'</td>';
+              } else {
+                echo '<td style="text-align:right; color:green">'.$balance_july.'</td>';
+              }
+              $balance += $balance_july;
+              if( $balance < 0 ){
+                echo '<td style="text-align:right; color:red">'.$balance.'</td>';
+              } else {
+                echo '<td style="text-align:right; color:green">'.$balance.'</td>';
+              }
             ?>
-            <td><?php echo $balance_july ?></td>
             </tr>
             <tr>
             <td>August</td>
@@ -178,8 +243,19 @@
                   }
                 }
               }
+              
+              if( $balance_aug  <  0){
+                echo '<td style="text-align:right; color:red">'.$balance_aug.'</td>';
+              } else {
+                echo '<td style="text-align:right; color:green">'.$balance_aug.'</td>';
+              }
+              $balance += $balance_aug;
+              if( $balance < 0 ){
+                echo '<td style="text-align:right; color:red">'.$balance.'</td>';
+              } else {
+                echo '<td style="text-align:right; color:green">'.$balance.'</td>';
+              }
             ?>
-            <td><?php echo $balance_aug ?></td>
             </tr>
             <tr>
             <td>September</td>
@@ -195,8 +271,19 @@
                   }
                 }
               }
+              
+              if( $balance_sep  <  0){
+                echo '<td style="text-align:right; color:red">'.$balance_sep.'</td>';
+              } else {
+                echo '<td style="text-align:right; color:green">'.$balance_sep.'</td>';
+              }
+              $balance += $balance_sep;
+              if( $balance < 0 ){
+                echo '<td style="text-align:right; color:red">'.$balance.'</td>';
+              } else {
+                echo '<td style="text-align:right; color:green">'.$balance.'</td>';
+              }
             ?>
-            <td><?php echo $balance_sep ?></td>
             </tr>
             <tr>
             <td>October </td>
@@ -212,8 +299,19 @@
                   }
                 }
               }
+              
+              if( $balance_oct  <  0){
+                echo '<td style="text-align:right; color:red">'.$balance_oct.'</td>';
+              } else {
+                echo '<td style="text-align:right; color:green">'.$balance_oct.'</td>';
+              }
+              $balance += $balance_oct;
+              if( $balance < 0 ){
+                echo '<td style="text-align:right; color:red">'.$balance.'</td>';
+              } else {
+                echo '<td style="text-align:right; color:green">'.$balance.'</td>';
+              }
             ?>
-            <td><?php echo $balance_oct ?></td>
             </tr>
             <tr>
             <td>November </td>
@@ -229,8 +327,19 @@
                   }
                 }
               }
+              
+              if( $balance_nov  <  0){
+                echo '<td style="text-align:right; color:red">'.$balance_nov.'</td>';
+              } else {
+                echo '<td style="text-align:right; color:green">'.$balance_nov.'</td>';
+              }
+              $balance += $balance_nov;
+              if( $balance < 0 ){
+                echo '<td style="text-align:right; color:red">'.$balance.'</td>';
+              } else {
+                echo '<td style="text-align:right; color:green">'.$balance.'</td>';
+              }
             ?>
-            <td><?php echo $balance_nov ?></td>
             </tr>
             <tr>
             <td>December </td>
@@ -246,11 +355,29 @@
                   }
                 }
               }
+              
+              if( $balance_dec  <  0){
+                echo '<td style="text-align:right; color:red">'.$balance_dec.'</td>';
+              } else {
+                echo '<td style="text-align:right; color:green">'.$balance_dec.'</td>';
+              }
+              $balance += $balance_dec;
+              if( $balance < 0 ){
+                echo '<td style="text-align:right; color:red">'.$balance.'</td>';
+              } else {
+                echo '<td style="text-align:right; color:green">'.$balance.'</td>';
+              }
             ?>
-            <td><?php echo $balance_dec ?></td>
             </tr>
             <tr>
             <td colspan="2" style="text-align: center;">Total </td>
+            <?php
+            if( $balance < 0 ){
+              echo '<td style="text-align:right; color:red">'.$balance.'</td>';
+            } else {
+              echo '<td style="text-align:right; color:green">'.$balance.'</td>';
+            }
+            ?>
             </tr>
         </tbody>
         </table>

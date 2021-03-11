@@ -1,6 +1,13 @@
 <table id="table" class="table" style="width:100%">
     <thead class="thead-dark ">
         <tr>
+        <th>The table shows sum the amount of income and expenditure each year <?php echo date('Y') ?>.</th>
+        </tr>
+        <tr>
+        <th>{{Auth::user()->firstname}}</th>
+        <th>{{Auth::user()->lastname}}</th>
+        </tr>
+        <tr>
         <th scope="col" style="text-align:center;">Month</th>
         <th scope="col" style="text-align:center;">Balance</th>
         <th scope="col" style="text-align:center;">Cumulative balance</th>
