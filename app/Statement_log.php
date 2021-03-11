@@ -24,10 +24,11 @@ class Statement_log extends Model
     }
 
 
-    public function get_log_year(){
+    public function get_log_year($user){
         $rs_log = DB::table('statement_log')
             ->select('product_name','balance','description','log_statement_id','log_type_id','created_at')
-            ->whereYear('created_at', '=', date('Y'));
+            ->whereYear('created_at', '=', date('Y'))
+            ->where('log_user_id',$user);
         return $rs_log->get();
     }
 

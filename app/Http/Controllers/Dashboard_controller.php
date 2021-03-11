@@ -11,8 +11,9 @@ use App\Statement_log;
 class Dashboard_controller extends Controller
 {
     public function show_dashboard(){
+        $user = Auth::User()->user_id;
         $data = new Statement_log();
-        $rs_log_year = $data->get_log_year();
+        $rs_log_year = $data->get_log_year($user);
         return view('Dashboard/v_dashboard')->with('result',$rs_log_year);
     }
 
