@@ -36,6 +36,6 @@ class ResetPasswordController extends Controller
             'remember_token' => Str::random(60),
         ])->save();
 
-        $this->guard()->login($user);
+        return view('auth.login');
     }
 }
