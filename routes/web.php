@@ -18,6 +18,8 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
+
+
 /*---------- user profile ----------*/
 Route::resource('Profile','Profile_manage_controller');
 Route::post('Profile','Profile_manage_controller@update')->name('UpdateUserProfile');

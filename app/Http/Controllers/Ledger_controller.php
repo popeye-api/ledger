@@ -7,9 +7,12 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Statement;
+use App\Statement_log;
+
 
 class Ledger_controller extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      *
@@ -47,9 +50,27 @@ class Ledger_controller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    
     public function store(Request $request)
     {
-        //
+        
+        $this->validate($request,[
+            'product_name'=> 'required',
+            'type'=> 'required',
+            'balance'=>'required',
+            'description'=>'required'
+        ]);
+       
+        $rs_log = new Statement_log([
+            // 'date' =>  $date,
+            'product_name' => $request->get('product_name'),
+            'log_type_id' => $request->get('type'),
+            'balance' => $request->get('balance'),
+            'description' => $request->get('description')
+        ]);
+        
+        $rs_log->save();
+        return redirect("v_ledger");
     }
 
     /**

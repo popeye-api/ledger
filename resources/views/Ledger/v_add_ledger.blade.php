@@ -175,7 +175,7 @@
     <div class="card-body">
 
 
-<form class="col-md-12 text-center" action="{{action('Ledger_controller@store')}}>
+<form method="post" class="col-md-12 text-center" action="{{action('Ledger_controller@store')}}">
     {{csrf_field()}}
 
     {{-- <div class="form-group col-10">
@@ -188,10 +188,10 @@
             </label>
     </div><br><br> --}}
 
-    <div class="form-group">
+    <div class= "form-group ">
     <label class="col-md-3 text-right" > Date </label>
     <label class = "col-md-1"> &emsp; : </label>
-    <label class="col-md-6 " style = ""> <input class="form-control" type="text" placeholder="05/03/2021" disabled>   </label>
+    <label class="col-md-6 " style = ""> <input class="form-control" type="text" name="date" id="date" placeholder="05/03/2021" disabled>   </label>
     </li>
     </div><br><br>
 
@@ -199,14 +199,14 @@
       <label class = "col-md-3 text-right"> Product Name </label>
       <label class = "col-md-1"> &emsp; : </label>
 
-    <label class = "col-md-6" style = ""> <input class="form-control" type="text" value = "เจอตกอยู่แถวสะพานลอย">  </label>
+    <label class = "col-md-6" style = ""> <input class="form-control" type="text" name="product_name" id="product_name" >  </label>
     </div><br><br>
 
     <div class="form-group">
         <label class = "col-md-3 text-right" >Type </label>
         <label class = "col-md-1"> &emsp; : </label>
         <label class = "col-md-6" style = "">
-            <select class="form-control"  aria-label="Default select example">
+            <select class="form-control" id="type" name="type" aria-label="Default select example">
             <optgroup>
                 <option value="1" >income</option>
                 <option value="2">expense</option>
@@ -218,13 +218,13 @@
     <div class="form-group ">
         <label class = "col-md-3 text-right">Balance  </label>
         <label class = "col-md-1"> &emsp; : </label>
-        <label class = "col-md-6"><input class="form-control" type="text" placeholder="-">  </label>
+        <label class = "col-md-6"><input class="form-control" type="text" name="balance" id="balance" placeholder="">  </label>
     </div><br><br>
 
     <div class="form-group ">
         <label class="col-md-3 text-right" >Description  </label>
         <label class = "col-md-1"> &emsp; : </label>
-        <label class="col-md-6 "><input class="form-control" type="text" placeholder="-" >  </label>
+        <label class="col-md-6 "><input class="form-control" name="description" id="description" type="text" placeholder="" >  </label>
     </div><br><br>
 
 
