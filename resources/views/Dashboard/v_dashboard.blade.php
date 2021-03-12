@@ -55,13 +55,11 @@
 				margin-left:auto;
 		  }
 
-		  .bg{
-			  background-color: #DCDCDC;
-		  }
+		 
 
 	  </style>
   
-  <body class="bg">
+  <body >
 <?php 
 
 	$balance_jan = 0;

@@ -43,12 +43,12 @@
         <p class = "col-md-6 text-left"><?php  echo date("d/m/Y"); ?></p>
     </div><br><br>
     <div class="form-group">
-        <label class = "col-md-3 text-right"> Product Name </label>
+        <label class = "col-md-3 text-right"> Product Name <text style="color:red;">*</text></label>
         <label class = "col-md-1"> &emsp; : </label>
         <label class = "col-md-6"> <input class="form-control" type="text" name="product_name" id="product_name"></label>
     </div><br><br>
     <div class="form-group">
-        <label class = "col-md-3 text-right" >Type </label>
+        <label class = "col-md-3 text-right" >Type <text style="color:red;">*</text></label>
         <label class = "col-md-1"> &emsp; : </label>
         <label class = "col-md-6" style = "">
             <select class="form-control" id="type" name="type" aria-label="Default select example">
@@ -58,18 +58,18 @@
         </label>
     </div><br><br>
     <div class="form-group ">
-        <label class = "col-md-3 text-right">Balance  </label>
+        <label class = "col-md-3 text-right">Balance <text style="color:red;">*</text></label>
         <label class = "col-md-1"> &emsp; : </label>
         <label class = "col-md-6"><input class="form-control" type="text" name="balance" id="balance" placeholder="">  </label>
     </div><br><br>
     <div class="form-group ">
-        <label class="col-md-3 text-right" >Description  </label>
+        <label class="col-md-3 text-right" >Description <text style="color:red;">*</text></label>
         <label class = "col-md-1"> &emsp; : </label>
         <label class="col-md-6 "><input class="form-control" name="description" id="description" type="text" placeholder="" >  </label>
     </div><br><br>
     <div class="form-group col-md-12 text-center">
-        <a href="{{ 'v_ledger' }}" class="btn btn-secondary">Cancel</a>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <a href="{{ 'v_ledger' }}"  class="btn btn-secondary">Cancel</a>
+        <button type="submit" style="background-color:#FF7A33;" class="btn btn-primary">Submit</button>
     </div><br><br>
   </form>
 </div>

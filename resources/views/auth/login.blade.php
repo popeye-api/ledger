@@ -77,11 +77,7 @@
                 
                 
             
-        {{-- </div>
-        <a style="color:#FF5733" class="btn btn-link mg" href="{{ route('register') }}">
-            {{ __('Sign up?') }}
-        </a>
-    </div> --}}
+        
 </form>
             </div>
           </div>
